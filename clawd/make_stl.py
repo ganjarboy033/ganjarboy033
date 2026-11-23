@@ -1,111 +1,113 @@
 #!/usr/bin/env python3
-"""Generate the KRUZENLAB K-01 cyber-helmet mascot as an ASCII STL mesh.
-
-No third-party packages are required. Coordinates are in arbitrary model units.
-Run from any directory: python clawd/make_stl.py [output.stl]
+# -*- coding: utf-8 -*-
 """
-from math import sin, cos, pi
-from pathlib import Path
-import sys
+GNZX-01 "Kruzen Bot" — KRUZENLAB original mascot, written as ASCII STL.
 
-TRIS = []
+Design (100% original for KRUZENLAB // BAGJA DEV):
+  A mini helmet-droid / cyber-core bot:
+    - armored helmet with a raised visor relief band
+    - beacon antenna (stem + glowing tip relief)
+    - side ear pods, shoulder rear fins
+    - compact torso with a raised chest-core plate
+    - two arms with grippers, twin thruster feet
 
-def tri(a, b, c):
-    TRIS.append((a, b, c))
+Single-color STL viewers ignore material, so emissive parts (visor, core,
+beacon tip, pods) are modeled as slightly raised relief plates that read
+as highlights on GitHub's 3D viewer. The colored raymarched animation lives
+in render.py and produces assets/kruzen_bot.gif.
 
-def ellipsoid(center, radii, rings=18, segments=32):
-    cx, cy, cz = center
-    rx, ry, rz = radii
-    for i in range(rings):
-        lat0 = -pi/2 + pi*i/rings
-        lat1 = -pi/2 + pi*(i+1)/rings
-        for j in range(segments):
-            lon0 = 2*pi*j/segments
-            lon1 = 2*pi*(j+1)/segments
-            def v(lat, lon):
-                return (cx+rx*cos(lat)*cos(lon),
-                        cy+ry*sin(lat),
-                        cz+rz*cos(lat)*sin(lon))
-            a,b,c,d = v(lat0,lon0),v(lat1,lon0),v(lat1,lon1),v(lat0,lon1)
-            tri(a,b,c); tri(a,c,d)
+Output: ../assets/kruzen_bot.stl
+Convention: modeled as (x, y-up, z-forward); the writer swaps to z-up STL
+so the bot stands upright in the GitHub model viewer.
+"""
 
-def cylinder(a, b, radius, segments=20):
-    """Closed cylinder between 3D points."""
-    import math
-    ax,ay,az=a; bx,by,bz=b
-    dx,dy,dz=bx-ax,by-ay,bz-az
-    length=math.sqrt(dx*dx+dy*dy+dz*dz)
-    ux,uy,uz=dx/length,dy/length,dz/length
-    # stable perpendicular basis
-    ref=(0,1,0) if abs(uy)<0.9 else (1,0,0)
-    vx=uy*ref[2]-uz*ref[1]; vy=uz*ref[0]-ux*ref[2]; vz=ux*ref[1]-uy*ref[0]
-    vl=math.sqrt(vx*vx+vy*vy+vz*vz); vx,vy,vz=vx/vl,vy/vl,vz/vl
-    wx=uy*vz-uz*vy; wy=uz*vx-ux*vz; wz=ux*vy-uy*vx
-    ring1=[]; ring2=[]
-    for i in range(segments):
-        t=2*pi*i/segments
-        off=tuple(radius*(cos(t)*v+sin(t)*w) for v,w in zip((vx,vy,vz),(wx,wy,wz)))
-        ring1.append(tuple(a[k]+off[k] for k in range(3)))
-        ring2.append(tuple(b[k]+off[k] for k in range(3)))
-    for i in range(segments):
-        n=(i+1)%segments
-        tri(ring1[i],ring2[i],ring2[n]); tri(ring1[i],ring2[n],ring1[n])
-        tri(a,ring1[n],ring1[i]); tri(b,ring2[i],ring2[n])
+import os
 
-def rounded_panel(center, size, bevel=0.12):
-    """Low-poly beveled rectangular shell built as an ellipsoid-like octagonal prism."""
-    cx,cy,cz=center; sx,sy,sz=size
-    # octagonal cross-section in X/Z, extruded along Y
-    outline=[(-sx+bevel,-sz),(sx-bevel,-sz),(sx,-sz+bevel),(sx,sz-bevel),
-             (sx-bevel,sz),(-sx+bevel,sz),(-sx,sz-bevel),(-sx,-sz+bevel)]
-    front=[(cx+x,cy-sy,cz+z) for x,z in outline]
-    back=[(cx+x,cy+sy,cz+z) for x,z in outline]
-    fc=(cx,cy-sy,cz); bc=(cx,cy+sy,cz)
-    for i in range(8):
-        n=(i+1)%8
-        tri(fc,front[i],front[n]); tri(bc,back[n],back[i])
-        tri(front[i],back[i],back[n]); tri(front[i],back[n],front[n])
+# each entry: (box tuple (x0,y0,z0,x1,y1,z1), tag)
+boxes = []
 
-# Main helmet: broad domed shell, lower chin ring, and a deep front visor.
-ellipsoid((0,0.10,0.05),(0.92,0.76,0.76),22,40)
-ellipsoid((0,-0.28,0.12),(0.82,0.43,0.68),16,36)
-rounded_panel((0,-0.655,0.17),(0.66,0.075,0.29),0.18)  # visor frame
-ellipsoid((0,-0.735,0.18),(0.56,0.045,0.205),12,36)   # glass visor
-# paired glowing eye modules represented as raised lenses
-for x in (-0.245,0.245):
-    ellipsoid((x,-0.785,0.205),(0.105,0.035,0.075),10,20)
-# crown crest + antenna and beacon
-ellipsoid((0,0.78,0.06),(0.27,0.16,0.24),12,24)
-cylinder((0,0.88,0.06),(0,1.20,0.06),0.055,16)
-ellipsoid((0,1.25,0.06),(0.12,0.12,0.12),12,20)
-# side audio/processor pods and tiny side fins
-for s in (-1,1):
-    ellipsoid((s*0.88,0.05,0.02),(0.20,0.32,0.35),14,24)
-    ellipsoid((s*1.02,0.05,0.02),(0.075,0.19,0.22),10,20)
-    # angled ear fins
-    cylinder((s*0.83,0.34,0.0),(s*1.18,0.58,0.0),0.09,12)
-# lower floating stabilizer / neck ring
-ellipsoid((0,-0.72,0.08),(0.42,0.12,0.38),12,28)
 
-def normal(a,b,c):
-    ux,uy,uz=(b[i]-a[i] for i in range(3))
-    vx,vy,vz=(c[i]-a[i] for i in range(3))
-    nx,ny,nz=uy*vz-uz*vy,uz*vx-ux*vz,ux*vy-uy*vx
-    l=(nx*nx+ny*ny+nz*nz)**0.5 or 1
-    return nx/l,ny/l,nz/l
+def part(cx, cy, cz, hx, hy, hz, tag="shell"):
+    boxes.append(((cx - hx, cy - hy, cz - hz,
+                   cx + hx, cy + hy, cz + hz), tag))
 
-def main():
-    out=Path(sys.argv[1]) if len(sys.argv)>1 else Path(__file__).resolve().parents[1]/"assets"/"kruzen_bot.stl"
-    out.parent.mkdir(parents=True,exist_ok=True)
-    with out.open("w",encoding="ascii") as f:
-        f.write("solid kruzen_k01_cyber_helmet\n")
-        for a,b,c in TRIS:
-            n=normal(a,b,c)
-            f.write(" facet normal %.6f %.6f %.6f\n  outer loop\n"%n)
-            for p in (a,b,c): f.write("   vertex %.5f %.5f %.5f\n"%p)
-            f.write("  endloop\n endfacet\n")
-        f.write("endsolid kruzen_k01_cyber_helmet\n")
-    print(f"Generated {out} ({len(TRIS)} triangles)")
 
-if __name__=="__main__":
-    main()
+# ---------------------------------------------------------------- chassis
+part(0.00, 0.86,  0.00, 0.50, 0.40, 0.34, "shell")    # torso hull
+part(0.00, 1.18,  0.05, 0.16, 0.10, 0.16, "shell")    # neck coupling
+part(0.00, 1.62,  0.08, 0.55, 0.40, 0.44, "shell")    # helmet dome
+
+# ---------------------------------------------------------------- antenna
+part(0.00, 2.16,  0.08, 0.035, 0.14, 0.035, "shell")  # beacon stem
+part(0.00, 2.38,  0.08, 0.075, 0.075, 0.075, "relief")# beacon tip
+
+# ---------------------------------------------------------------- ear pods
+part(-0.68, 1.60, 0.08, 0.10, 0.17, 0.17, "relief")   # left pod
+part( 0.68, 1.60, 0.08, 0.10, 0.17, 0.17, "relief")   # right pod
+
+# ---------------------------------------------------------------- arms
+part(-0.70, 0.94, 0.02, 0.13, 0.24, 0.13, "shell")    # left upper arm
+part( 0.70, 0.94, 0.02, 0.13, 0.24, 0.13, "shell")    # right upper arm
+part(-0.70, 0.60, 0.06, 0.11, 0.09, 0.11, "relief")   # left gripper
+part( 0.70, 0.60, 0.06, 0.11, 0.09, 0.11, "relief")   # right gripper
+
+# ---------------------------------------------------------------- rear fins
+part(-0.56, 1.24, -0.28, 0.05, 0.22, 0.10, "relief")  # left fin
+part( 0.56, 1.24, -0.28, 0.05, 0.22, 0.10, "relief")  # right fin
+
+# ---------------------------------------------------------------- legs + thrusters
+part(-0.26, 0.34, 0.00, 0.13, 0.26, 0.13, "shell")    # left leg
+part( 0.26, 0.34, 0.00, 0.13, 0.26, 0.13, "shell")    # right leg
+part(-0.26, 0.06, 0.05, 0.17, 0.06, 0.19, "relief")   # left thruster foot
+part( 0.26, 0.06, 0.05, 0.17, 0.06, 0.19, "relief")   # right thruster foot
+
+# ---------------------------------------------------------------- relief plates
+part(0.00, 1.66, 0.50, 0.40, 0.10, 0.05, "relief")    # visor band (front)
+part(0.00, 0.92, 0.35, 0.15, 0.15, 0.035, "relief")   # chest core
+
+
+def quads(b):
+    """Six outward-facing quads for an axis-aligned box."""
+    x0, y0, z0, x1, y1, z1 = b
+    v = lambda i, j, k: ((x0, x1)[i], (y0, y1)[j], (z0, z1)[k])
+    return [
+        ((0, 0, -1), [v(0, 0, 0), v(0, 1, 0), v(1, 1, 0), v(1, 0, 0)]),
+        ((0, 0,  1), [v(0, 0, 1), v(1, 0, 1), v(1, 1, 1), v(0, 1, 1)]),
+        ((-1, 0, 0), [v(0, 0, 0), v(0, 0, 1), v(0, 1, 1), v(0, 1, 0)]),
+        (( 1, 0, 0), [v(1, 0, 0), v(1, 1, 0), v(1, 1, 1), v(1, 0, 1)]),
+        ((0, -1, 0), [v(0, 0, 0), v(1, 0, 0), v(1, 0, 1), v(0, 0, 1)]),
+        ((0,  1, 0), [v(0, 1, 0), v(0, 1, 1), v(1, 1, 1), v(1, 1, 0)]),
+    ]
+
+
+out = ["solid kruzen_bot"]
+
+
+def tri(n, a, b, c):
+    # model (x, y-up, z-forward) -> STL (x, z-up, y-forward)
+    sw = lambda p: (p[0], -p[2], p[1])
+    n2 = sw(n)
+    out.append(" facet normal %.4f %.4f %.4f" % n2)
+    out.append("  outer loop")
+    for p in (a, b, c):
+        q = sw(p)
+        out.append("   vertex %.4f %.4f %.4f" % q)
+    out.append("  endloop")
+    out.append(" endfacet")
+
+
+facet_count = 0
+for b, tag in boxes:
+    for n, (a, bb, c, d) in quads(b):
+        tri(n, a, bb, c)
+        tri(n, a, c, d)
+        facet_count += 2
+
+out.append("endsolid kruzen_bot")
+
+os.makedirs("../assets", exist_ok=True)
+with open("../assets/kruzen_bot.stl", "w", encoding="utf-8") as f:
+    f.write("\n".join(out) + "\n")
+
+print("[kruzen_bot] parts=%d facets=%d -> ../assets/kruzen_bot.stl"
+      % (len(boxes), facet_count))
