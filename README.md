@@ -1,33 +1,36 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=rect&height=220&text=KRUZENLAB%20%2F%2F%20BAGJA%20DEV&fontSize=42&fontColor=EAFBFF&fontAlignY=42&desc=Mobile-built%20Android%20%2B%20Web%20ecosystems&descAlignY=66&descSize=17&color=0B1220,123B52,087E8B&animation=fadeIn" width="100%" alt="KRUZENLAB // BAGJA DEV" />
+<img src="./assets/kruzenlab-banner.gif" width="100%" alt="KRUZENLAB // BAGJA DEV animated cyber banner"/>
 
 <br/>
 
-<a href="https://bagja.dev"><img src="https://img.shields.io/badge/WEB-BAGJA.DEV-16C7C9?style=for-the-badge&logo=googlechrome&logoColor=07131B" alt="Website"/></a>
-<img src="https://img.shields.io/badge/STATUS-INDEPENDENT_BUILDER-7CDBA5?style=for-the-badge" alt="Status"/>
-<img src="https://img.shields.io/badge/ROLE-ANDROID_%2B_FULLSTACK-7AA2F7?style=for-the-badge" alt="Role"/>
-<img src="https://img.shields.io/badge/DEV_MODE-MOBILE--FIRST-F2C879?style=for-the-badge&logo=android&logoColor=101820" alt="Mobile first"/>
+<img src="https://img.shields.io/badge/●_SYSTEM-ONLINE-35D6A5?style=for-the-badge&labelColor=101B2A" />
+<img src="https://img.shields.io/badge/ROLE-ANDROID_%2B_FULLSTACK-55DDE0?style=for-the-badge&labelColor=101B2A" />
+<img src="https://img.shields.io/badge/DEV_MODE-MOBILE_FIRST-F4C76B?style=for-the-badge&labelColor=101B2A" />
+<a href="https://bagja.dev"><img src="https://img.shields.io/badge/WEB-BAGJA.DEV-7B9CFF?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=101B2A" /></a>
 
-**Gandzar Subagja** · DEV BAGJA · Project ID `GNZX`  
-Indonesia · Garut / Bandung, West Java
+### `GANDZAR SUBAGJA` · `DEV BAGJA` · `PROJECT GNZX`
+**Indonesia · Garut / Bandung, West Java**
 
 *Building Android & Web ecosystems straight from a smartphone.*  
 **Code anywhere, ship everywhere.**
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=17&duration=2300&pause=650&color=55DDE0&center=true&vCenter=true&width=820&lines=No+PC%3F+No+problem.+Build+from+Android.;Turning+ideas+into+APK+%2B+Web+ecosystems.;AI-assisted+workflow.+Human-led+engineering.;Mobile+IDE+%E2%86%92+Cloud+CI%2FCD+%E2%86%92+Production." alt="Animated developer statements"/>
 
 </div>
 
 ---
 
-## `01 / SYSTEM CONSOLE`
+## `01 / GNZX SYSTEM CONSOLE`
 
-<img src="https://raw.githubusercontent.com/[USERNAME_GITHUB_SAYA]/[USERNAME_GITHUB_SAYA]/main/assets/terminal.svg" width="100%" alt="KruzenLab system terminal"/>
+<img src="./assets/terminal.svg" width="100%" alt="Animated KRUZENLAB system terminal"/>
 
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=17&duration=2800&pause=850&color=53DCEB&center=true&vCenter=true&width=760&lines=Building+Android+systems+from+a+phone.;Designing+web+tools+that+ship+to+production.;AI-assisted+workflows+%2B+human+engineering.;One+mobile+workstation.+Many+digital+ecosystems." alt="DEV BAGJA typing animation"/>
+  <img src="./assets/gnzx-orbit.gif" width="100%" alt="GNZX animated orbital system map"/>
+  <sub>GNZX CORE // ANDROID • WEB • CLOUD • AUTOMATION</sub>
 </div>
 
-## `02 / THE BUILDER`
+## `02 / BUILDER IDENTITY`
 
 ```yaml
 identity:
@@ -40,17 +43,16 @@ mission: "Building Android & Web ecosystems straight from a smartphone."
 principle: "Code anywhere, ship everywhere."
 
 roles:
-  - Mobile-First Android Developer
-  - Fullstack Web Developer
+  - Mobile-First Android & Fullstack Web Developer
   - AI Workflow Builder
   - Audio & Media App Creator
 
 workstation:
   mode: Mobile-Only
-  device_os: Android 12
+  device: Android 12
   compute: Cloud IDE + GitHub Actions
   desktop_required: false
-  delivery: APK + Web
+  output: APK + Web
 
 toolchain:
   android: [Kotlin, Jetpack Compose, Android SDK]
@@ -59,7 +61,11 @@ toolchain:
   ai: [Google AI Studio]
 ```
 
-## `03 / ECOSYSTEM STATUS`
+## `03 / ECOSYSTEM TELEMETRY`
+
+<div align="center">
+  <img src="./assets/ecosystem-telemetry.gif" width="100%" alt="Animated live-style KRUZENLAB project telemetry"/>
+</div>
 
 ```console
 $ systemctl status kruzen-stack
@@ -68,75 +74,94 @@ $ systemctl status kruzen-stack
    Loaded: loaded (GNZX workspace)
    Active: running
 
-   ● nexora-cloud.service       active (running)
-   ● motiontouch-studio.service in_dev
-   ● kruzen-uploader.service    active (running)
-   ● kila-media.service         stable
+   ● nexora-cloud.service        active (running)
+   ● motiontouch-studio.service  in_dev
+   ● kruzen-uploader.service     running
+   ● kila-media.service          stable
 ```
 
-| Project | State | What it does | Core technologies |
+| Project | State | Description | Core stack |
 |---|---|---|---|
-| **Nexora Cloud** | 🟢 `active / running` | Hybrid Android personal cloud storage & file explorer with Telegram, Drive and GitHub integrations. | Jetpack Compose · Kotlin |
-| **MotionTouch Studio** | 🟡 `in_dev` | Android screen/cursor recorder and keyframe-based video editor. | Android · Media tooling |
-| **KruzenLab Uploader** | 🟢 `running` | GitHub OAuth 2.0 batch repository manager for Android APK and Next.js Web. | Next.js · TypeScript · Android |
+| **Nexora Cloud** | 🟢 `active / running` | Hybrid Android personal cloud storage & file explorer with Telegram, Drive and GitHub integrations. | Kotlin · Jetpack Compose |
+| **MotionTouch Studio** | 🟡 `in_dev` | Android screen/cursor recorder and keyframe video editor. | Android · Media tooling |
+| **KruzenLab Uploader** | 🟢 `running` | GitHub OAuth 2.0 batch repository manager for Android APK and Next.js Web. | Next.js · TypeScript |
 | **KILA / MusikKu** | 🔵 `stable` | Universal Android media player, 8D audio/EQ studio and social media downloader. | Kotlin · Android Media |
 
-## `04 / TOOLCHAIN`
+## `04 / K-01 CYBER MASCOT`
 
 <div align="center">
+  <img src="./assets/kruzen_bot.gif" width="390" alt="KRUZENLAB K-01 3D cyber mascot animation"/>
+  <br/>
+  <b>K-01 // NEON HELMET UNIT</b><br/>
+  <sub>Procedural 3D mesh · Cyan core · Rotational idle animation</sub>
+</div>
+
+<details>
+<summary><b>↳ Open 3D asset & generation notes</b></summary>
+
+- [View STL model](./assets/kruzen_bot.stl)
+- Generator: [`clawd/make_stl.py`](./clawd/make_stl.py)
+- Renderer: [`clawd/render.py`](./clawd/render.py)
+
+The mascot is generated procedurally; the STL is the mesh export and the GIF is its rendered preview.
+
+</details>
+
+## `05 / TOOLCHAIN GRID`
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=kotlin,androidstudio,jetpackcompose,typescript,nextjs,html,css,github,githubactions,vercel&theme=dark" alt="Technology stack icons"/>
+
+<br/><br/>
 
 <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white"/>
 <img src="https://img.shields.io/badge/Jetpack_Compose-4285F4?style=flat-square&logo=jetpackcompose&logoColor=white"/>
 <img src="https://img.shields.io/badge/Capacitor-119EFF?style=flat-square&logo=capacitor&logoColor=white"/>
 <img src="https://img.shields.io/badge/Next.js-111111?style=flat-square&logo=nextdotjs&logoColor=white"/>
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"/>
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/>
 <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white"/>
 <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white"/>
 <img src="https://img.shields.io/badge/Google_AI_Studio-8E75B2?style=flat-square&logo=googlegemini&logoColor=white"/>
-<img src="https://img.shields.io/badge/Android_SDK-3DDC84?style=flat-square&logo=android&logoColor=101820"/>
 
 </div>
 
-## `05 / KRUZEN CORE — 3D UNIT`
+## `06 / MOBILE WORKSTATION`
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/[USERNAME_GITHUB_SAYA]/[USERNAME_GITHUB_SAYA]/main/assets/kruzen_bot.gif" width="360" alt="Kruzen cyber helmet bot rotating in 3D"/>
-  <br/>
-  <sub>UNIT K-01 · CYBER HELMET / NEON CORE</sub>
+
+| Layer | Environment |
+|:--|:--|
+| Device | Android 12 |
+| Workspace | Mobile-only / no-PC setup |
+| Development | Cloud IDE + GitHub |
+| Build engine | GitHub Actions |
+| Android output | APK / Android SDK |
+| Web output | Next.js / Vercel |
+
+**Pocket-sized workstation. Cloud-sized compute.**
+
 </div>
 
-<details>
-<summary><b>Explore the printable 3D mesh (STL)</b></summary>
-
-The original procedural mesh is generated by `clawd/make_stl.py`.
-
-[Open kruzen_bot.stl](https://github.com/[USERNAME_GITHUB_SAYA]/[USERNAME_GITHUB_SAYA]/blob/main/assets/kruzen_bot.stl)
-
-</details>
-
-## `06 / CONTRIBUTION MATRIX`
+## `07 / CONTRIBUTION DIMENSION`
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/[USERNAME_GITHUB_SAYA]/[USERNAME_GITHUB_SAYA]/main/profile-3d-contrib/profile-night-rainbow.svg" width="100%" alt="3D GitHub contribution graph"/>
+  <img src="./profile-3d-contrib/profile-night-rainbow.svg" width="100%" alt="3D GitHub contribution graph"/>
+  <sub>Generated automatically with GitHub Actions · profile-3d-contrib</sub>
 </div>
 
-> Contribution visualization is generated by the `profile-3d-contrib` GitHub Action workflow.
-
-## `07 / DEPLOYMENT LINKS`
-
-- Website: [bagja.dev](https://bagja.dev)
-- Kruzen Uploader: [kruzen-uploader.vercel.app](https://kruzen-uploader.vercel.app)
-- GitHub: `@[USERNAME_GITHUB_SAYA]`
-
----
+## `08 / CONNECT & DEPLOY`
 
 <div align="center">
+
+<a href="https://bagja.dev"><img src="https://img.shields.io/badge/PORTFOLIO-bagja.dev-55DDE0?style=for-the-badge&logo=googlechrome&logoColor=black"/></a>
+<a href="https://kruzen-uploader.vercel.app"><img src="https://img.shields.io/badge/WEB_APP-Kruzen_Uploader-111827?style=for-the-badge&logo=vercel&logoColor=white"/></a>
+
+<br/><br/>
 
 **KRUZENLAB // GNZX**  
 *Designed to build. Engineered to ship.*
 
-<sub>Made on Android 12 · Built with cloud compute · Deployed everywhere</sub>
+<sub>Made on Android 12 · Powered by cloud compute · Deployed everywhere</sub>
 
 </div>

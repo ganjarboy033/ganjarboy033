@@ -10,6 +10,12 @@
  .mono{font-family:'JetBrains Mono','SFMono-Regular',Consolas,monospace}
  .muted{fill:#71899b}.white{fill:#e7f5f7}.cyan{fill:#5be1e8}.green{fill:#7ce3b2}.gold{fill:#f3c979}
  .label{font-size:13px;letter-spacing:1.4px}.line{stroke:#244456;stroke-width:1}
+ @keyframes blink{0%,48%{opacity:1}49%,100%{opacity:.12}}
+ @keyframes sweep{0%{transform:translateY(-20px);opacity:0}15%{opacity:.42}85%{opacity:.25}100%{transform:translateY(420px);opacity:0}}
+ @keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}
+ .cursor{animation:blink 1.1s steps(2,start) infinite}
+ .scan{animation:sweep 5s linear infinite}
+ .pulse{animation:breathe 2.4s ease-in-out infinite}
  </style>
 </defs>
 <rect x="2" y="2" width="996" height="466" rx="20" fill="url(#bg)" stroke="#2b6972" stroke-width="2"/>
@@ -18,6 +24,9 @@
 <circle cx="29" cy="26" r="6" fill="#ff7185"/><circle cx="51" cy="26" r="6" fill="#f2c879"/><circle cx="73" cy="26" r="6" fill="#79dfb2"/>
 <text x="105" y="31" class="mono white" font-size="15">gnzx@kruzenlab:~</text>
 <text x="964" y="31" text-anchor="end" class="mono muted" font-size="12">MOBILE WORKSTATION // GNZX-01</text>
+<!-- animated glass scanline and subtle status pulse -->
+<rect class="scan" x="4" y="52" width="992" height="3" fill="#63e7ee" opacity=".22" filter="url(#glow)"/>
+<circle class="pulse" cx="940" cy="26" r="4" fill="#7ce3b2"/>
 <!-- left terminal -->
 <text x="34" y="91" class="mono green" font-size="14">$ whoami</text>
 <text x="34" y="124" class="mono cyan" font-size="13">╭─ K R U Z E N ─────────────────╮</text>
@@ -54,4 +63,5 @@
  <text x="520" y="428" class="muted">AUTOMATION</text><rect x="620" y="417" width="260" height="9" rx="4" fill="#1c3443"/><rect x="620" y="417" width="247" height="9" rx="4" fill="url(#cyan)"/><text x="895" y="427" class="cyan">95%</text>
 </g>
 <rect x="2" y="2" width="996" height="466" rx="20" fill="none" stroke="#52d9df" stroke-opacity=".35" filter="url(#glow)"/>
+<path class="pulse" d="M620 371h260 M620 394h260 M620 417h260" stroke="#d5ffff" stroke-width="1" opacity=".2"/>
 </svg>
