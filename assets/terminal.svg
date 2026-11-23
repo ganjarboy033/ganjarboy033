@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="470" viewBox="0 0 1000 470" role="img" aria-labelledby="title desc">
+<title id="title">KRUZENLAB mobile workstation terminal</title>
+<desc id="desc">A custom cyan and emerald system console for DEV BAGJA.</desc>
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1424"/><stop offset=".55" stop-color="#101e2b"/><stop offset="1" stop-color="#092b31"/></linearGradient>
+ <linearGradient id="bar" x2="1"><stop stop-color="#14263a"/><stop offset="1" stop-color="#123b43"/></linearGradient>
+ <linearGradient id="cyan" x2="1"><stop stop-color="#52e3ed"/><stop offset="1" stop-color="#78f0bd"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <style>
+ .mono{font-family:'JetBrains Mono','SFMono-Regular',Consolas,monospace}
+ .muted{fill:#71899b}.white{fill:#e7f5f7}.cyan{fill:#5be1e8}.green{fill:#7ce3b2}.gold{fill:#f3c979}
+ .label{font-size:13px;letter-spacing:1.4px}.line{stroke:#244456;stroke-width:1}
+ </style>
+</defs>
+<rect x="2" y="2" width="996" height="466" rx="20" fill="url(#bg)" stroke="#2b6972" stroke-width="2"/>
+<rect x="3" y="3" width="994" height="47" rx="18" fill="url(#bar)"/>
+<path d="M3 34v14q0 17 17 17h960q17 0 17-17V34" fill="#101d2b"/>
+<circle cx="29" cy="26" r="6" fill="#ff7185"/><circle cx="51" cy="26" r="6" fill="#f2c879"/><circle cx="73" cy="26" r="6" fill="#79dfb2"/>
+<text x="105" y="31" class="mono white" font-size="15">gnzx@kruzenlab:~</text>
+<text x="964" y="31" text-anchor="end" class="mono muted" font-size="12">MOBILE WORKSTATION // GNZX-01</text>
+<!-- left terminal -->
+<text x="34" y="91" class="mono green" font-size="14">$ whoami</text>
+<text x="34" y="124" class="mono cyan" font-size="13">╭─ K R U Z E N ─────────────────╮</text>
+<g class="mono" fill="#b9f7f0" font-size="18" font-weight="700">
+ <text x="36" y="157">██████╗  █████╗  ██████╗      </text>
+ <text x="36" y="181">██╔══██╗██╔══██╗██╔════╝      </text>
+ <text x="36" y="205">██████╔╝███████║██║  ███╗     </text>
+ <text x="36" y="229">██╔══██╗██╔══██║██║   ██║     </text>
+ <text x="36" y="253">██████╔╝██║  ██║╚██████╔╝     </text>
+ <text x="36" y="277">╚═════╝ ╚═╝  ╚═╝ ╚═════╝      </text>
+</g>
+<text x="36" y="309" class="mono muted" font-size="12">BUILD SMALL SCREENS. SHIP BIG IDEAS.</text>
+<line x1="34" y1="330" x2="460" y2="330" class="line"/>
+<text x="34" y="356" class="mono green" font-size="13">[ SYSTEM PROFILE ]</text>
+<text x="34" y="382" class="mono white" font-size="12">MOBILE-FIRST  /  CLOUD-POWERED  /  ALWAYS BUILDING</text>
+<text x="34" y="427" class="mono muted" font-size="11">CODE ANYWHERE  •  SHIP EVERYWHERE</text>
+<!-- divider -->
+<line x1="485" y1="75" x2="485" y2="438" class="line"/>
+<!-- right specs -->
+<text x="520" y="91" class="mono cyan" font-size="14">gnzx@kruzenlab <tspan class="muted">~</tspan> <tspan class="green">$ neofetch --profile</tspan></text>
+<text x="520" y="126" class="mono green" font-size="13">IDENTITY</text>
+<text x="520" y="151" class="mono white" font-size="14">Gandzar Subagja / DEV BAGJA</text>
+<text x="520" y="178" class="mono"><tspan class="gold">OS      </tspan><tspan class="white">Android 12 + Cloud Linux</tspan></text>
+<text x="520" y="204" class="mono"><tspan class="gold">HOST    </tspan><tspan class="white">Mobile-Only Workstation</tspan></text>
+<text x="520" y="230" class="mono"><tspan class="gold">ROLE    </tspan><tspan class="white">Android &amp; Web Developer</tspan></text>
+<text x="520" y="256" class="mono"><tspan class="gold">STACK   </tspan><tspan class="white">Kotlin · Compose · Next.js</tspan></text>
+<text x="520" y="282" class="mono"><tspan class="gold">CI/CD   </tspan><tspan class="white">GitHub Actions · Vercel Edge</tspan></text>
+<text x="520" y="308" class="mono"><tspan class="gold">MOTTO   </tspan><tspan class="white">Code on mobile, ship to prod.</tspan></text>
+<line x1="520" y1="331" x2="962" y2="331" class="line"/>
+<text x="520" y="356" class="mono green" font-size="12">SKILL SIGNAL / TOOLCHAIN</text>
+<g class="mono" font-size="11">
+ <text x="520" y="382" class="muted">ANDROID</text><rect x="620" y="371" width="260" height="9" rx="4" fill="#1c3443"/><rect x="620" y="371" width="238" height="9" rx="4" fill="url(#cyan)"/><text x="895" y="381" class="cyan">92%</text>
+ <text x="520" y="405" class="muted">WEB STACK</text><rect x="620" y="394" width="260" height="9" rx="4" fill="#1c3443"/><rect x="620" y="394" width="221" height="9" rx="4" fill="url(#cyan)"/><text x="895" y="404" class="cyan">85%</text>
+ <text x="520" y="428" class="muted">AUTOMATION</text><rect x="620" y="417" width="260" height="9" rx="4" fill="#1c3443"/><rect x="620" y="417" width="247" height="9" rx="4" fill="url(#cyan)"/><text x="895" y="427" class="cyan">95%</text>
+</g>
+<rect x="2" y="2" width="996" height="466" rx="20" fill="none" stroke="#52d9df" stroke-opacity=".35" filter="url(#glow)"/>
+</svg>
